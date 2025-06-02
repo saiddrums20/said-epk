@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import styles from "./page.module.scss";
+import styles from "../app/page.module.scss";
 
 import heroImage from '@/public/images/largerHero.jpeg';
 import { useEffect, useState } from "react";
@@ -13,11 +13,11 @@ export default function Home() {
   const [showFull, setShowFull] = useState(false);
 
   useEffect(() => {
-    fetch('/bios/short-bio.txt')
+    fetch('/said-epk/bios/short-bio.txt')
       .then((res) => res.text())
       .then(setShortBio);
 
-    fetch('/bios/long-bio.txt')
+    fetch('/said-epk/bios/long-bio.txt')
       .then((res) => res.text())
       .then(setFullBio);
   }, []);
