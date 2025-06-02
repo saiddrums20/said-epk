@@ -1,25 +1,31 @@
 {
   "name": "said-epk",
+  "homepage": "https://saiddrums20.github.io/said-epk",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "export": "next export",
+    "lint": "next lint",
+    "gh-pages": "npm run build && npm run export && npx gh-pages -d out"
   },
   "dependencies": {
+    "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.3"
+    "react-player": "^2.16.0",
+    "sass": "^1.89.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
-    "@eslint/eslintrc": "^3"
+    "gh-pages": "^6.3.0",
+    "typescript": "^5"
   }
 }
