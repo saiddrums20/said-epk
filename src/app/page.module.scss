@@ -1,3 +1,4 @@
+@import 'src/shared/scss/media-queries';
 
 .homepage {
   margin-top: 5%;
@@ -7,6 +8,16 @@
   display: flex;
   flex-direction: column;
   gap: 60px;
+
+  @include mobile {
+    margin: 0;
+    padding: 5% 10%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 
   &__header {
     display: flex;
@@ -84,6 +95,13 @@
       font-size: 38px;
       font-weight: 600;
     }
+
+    @include mobile {
+      iframe {
+        width: 260px;
+        height: 260px;
+      }
+    }
   }
 
   &__discog {
@@ -94,6 +112,18 @@
     &__title {
       font-size: 38px;
       font-weight: 600;
+    }
+
+    @include tablet {
+      iframe {
+        width: 80%;
+      }
+    }
+
+    @include mobile {
+      iframe {
+        width: 100%;
+      }
     }
   }
 

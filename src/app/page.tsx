@@ -1,8 +1,8 @@
 'use client'
 import Image from "next/image";
-import styles from "../app/page.module.scss";
+import styles from "./page.module.scss";
 
-import heroImage from '@/public/images/largerHero.jpeg';
+import heroImage from '@/public/images/largerHero.jpg';
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
@@ -12,12 +12,14 @@ export default function Home() {
   const [fullBio, setFullBio] = useState('');
   const [showFull, setShowFull] = useState(false);
 
+  const isProd = process.env.NODE_ENV === 'production';
+
   useEffect(() => {
-    fetch('/said-epk/bios/short-bio.txt')
+    fetch(`${isProd ? '/said-epk' : ''}/bios/short-bio.txt`)
       .then((res) => res.text())
       .then(setShortBio);
 
-    fetch('/said-epk/bios/long-bio.txt')
+    fetch(`${isProd ? '/said-epk' : ''}/bios/long-bio.txt`)
       .then((res) => res.text())
       .then(setFullBio);
   }, []);
@@ -27,7 +29,7 @@ export default function Home() {
       <section id="header" className={styles['homepage__header']}>
         <div>
           <div className={styles['homepage__header__title']}>said sarabia</div>
-          <div className={styles['homepage__header__subtitle']}>drummer / composer</div>
+          <div className={styles['homepage__header__subtitle']}>baterista / compositor</div>
         </div>
         <Image alt="heroImage" src={heroImage} width={360} />
         <div className={styles['homepage__header__shortBio']}>
@@ -67,7 +69,7 @@ export default function Home() {
       <section id="media" className={styles['homepage__media']}>
         <div className={styles['homepage__dates__title']}>media</div>
         <a
-          href="/assets/said-sarabia-photos.zip"
+          href="/assets/fotos Said Sarabia.zip"
           download
           className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
         >
