@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "./page.module.scss";
 
 import heroImage from '@/public/images/largerHero.jpg';
-import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import ShowDate from "../shared/components/dates/dates";
 
