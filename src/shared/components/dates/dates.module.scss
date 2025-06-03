@@ -1,0 +1,33 @@
+
+.show {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 300;
+
+    &__band {
+      font-size: 20px;
+      font-weight: 700;
+      font-style: normal;
+      margin-bottom: 4px;
+    }
+
+    &__date {
+      margin-bottom: 14px;
+    }
+
+    &__venue {
+      font-style: italic;
+    }
+
+    &__city {
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    &__info {
+        cursor: pointer;
+        max-width: max-content;
+    }
+  }

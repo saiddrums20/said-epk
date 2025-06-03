@@ -5,25 +5,12 @@ import styles from "./page.module.scss";
 import heroImage from '@/public/images/largerHero.jpg';
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
+import ShowDate from "../shared/components/dates/dates";
 
+import bio from '@/public/bios/short-bio.json';
+import Link from "next/link";
 
-export default function Home() {
-  const [shortBio, setShortBio] = useState('');
-  const [fullBio, setFullBio] = useState('');
-  const [showFull, setShowFull] = useState(false);
-
-  const isProd = process.env.NODE_ENV === 'production';
-
-  useEffect(() => {
-    fetch(`${isProd ? '/said-epk' : ''}/bios/short-bio.txt`)
-      .then((res) => res.text())
-      .then(setShortBio);
-
-    fetch(`${isProd ? '/said-epk' : ''}/bios/long-bio.txt`)
-      .then((res) => res.text())
-      .then(setFullBio);
-  }, []);
-  
+export default function Home() {  
   return (
     <div className={styles['homepage']}>
       <section id="header" className={styles['homepage__header']}>
@@ -33,37 +20,45 @@ export default function Home() {
         </div>
         <Image alt="heroImage" src={heroImage} width={360} />
         <div className={styles['homepage__header__shortBio']}>
-          {shortBio}
-          {showFull && fullBio}
+          {bio.paragraphs.map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
         </div>
-        <div onClick={() => setShowFull(!showFull)} className={styles['homepage__header__toggle']}>
-          {showFull ? '- mostrar menos' : '+ mostrar más'}
-        </div>
+        <Link href="/resume">
+          {'+ mostrar más'}
+        </Link>
       </section>
       
       <section id="show_dates" className={styles['homepage__dates']}>
         <div className={styles['homepage__dates__title']}>2025</div>
-        <div className={styles['homepage__dates__show']}>
-          <div className={styles['homepage__dates__show__band']}>the jazz bus</div>
-          <div className={styles['homepage__dates__show__date']}>12 de junio</div>
-          <div className={styles['homepage__dates__show__venue']}>workaholic</div>
-          <div className={styles['homepage__dates__show__city']}>mexicali, méxico</div>
-          <div className={styles['homepage__dates__show__info']}>+ información</div>
-        </div>
-        <div className={styles['homepage__dates__show']}>
-           <div className={styles['homepage__dates__show__band']}>brian arroyo & said sarabia: lo que no puedo decir con palabras</div>
-          <div className={styles['homepage__dates__show__date']}>26 al 28 de junio</div>
-          <div className={styles['homepage__dates__show__venue']}>galería tres ojos</div>
-          <div className={styles['homepage__dates__show__city']}>mexicali, méxico</div>
-          <div className={styles['homepage__dates__show__info']}>+ información</div>
-        </div>
-        <div className={styles['homepage__dates__show']}>
-           <div className={styles['homepage__dates__show__band']}>said sarabia cuarteto</div>
-          <div className={styles['homepage__dates__show__date']}>30 de junio</div>
-          <div className={styles['homepage__dates__show__venue']}>pizzería la camorra</div>
-          <div className={styles['homepage__dates__show__city']}>ensenada, mexico</div>
-          <div className={styles['homepage__dates__show__info']}>+ información</div>
-        </div>
+        <ShowDate
+          band="the jazz bus"
+          date="12 de junio"
+          venue="tbd café"
+          city="mexicali, méxico"
+          url="odfewj"
+        />
+        <ShowDate
+          band="the jazz bus"
+          date="13 de junio"
+          venue="workaholic"
+          city="mexicali, méxico"
+          url="odfewj"
+        />
+        <ShowDate
+          band="brian arroyo & said sarabia: lo que no puedo decir con palabras"
+          date="26 al 28 de junio"
+          venue="galería tres ojos"
+          city="mexicali, méxico"
+          url="odfewj"
+        />
+        <ShowDate
+          band="said sarabia cuarteto"
+          date="30 de junio"
+          venue="pizzería la camorra"
+          city="ensenada, mexico"
+          url="odfewj"
+        />
       </section>
 
       <section id="media" className={styles['homepage__media']}>
