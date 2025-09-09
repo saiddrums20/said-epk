@@ -14,8 +14,8 @@ export default function Home() {
     <div className={styles['homepage']}>
       <section id="header" className={styles['homepage__header']}>
         <div>
-          <div className={styles['homepage__header__title']}>said sarabia</div>
-          <div className={styles['homepage__header__subtitle']}>baterista / compositor</div>
+          <div className={styles['homepage__header__title']}>Said Sarabia</div>
+          <div className={styles['homepage__header__subtitle']}>Baterista / Compositor</div>
         </div>
         <Image alt="heroImage" src={heroImage} width={360} />
         <div className={styles['homepage__header__shortBio']}>
@@ -70,6 +70,13 @@ export default function Home() {
           + descargar fotos
         </a>
         <ReactPlayer
+          url="https://www.youtube.com/watch?v=zmodsFoN8bE"
+          className="react-player"
+          width="360px"
+          height="360px"
+          controls
+        />
+        <ReactPlayer
           url="https://www.youtube.com/watch?v=i5FnHzGdVhs"
           className="react-player"
           width="360px"
@@ -78,13 +85,6 @@ export default function Home() {
         />
         <ReactPlayer
           url="https://youtu.be/_kDcqJgmS38?si=dsWvE91ji6M5e8RP"
-          className="react-player"
-          width="360px"
-          height="360px"
-          controls
-        />
-        <ReactPlayer
-          url="https://youtu.be/mjtdZPXRRxY?si=McrrXgx3c61xVo_g"
           className="react-player"
           width="360px"
           height="360px"
