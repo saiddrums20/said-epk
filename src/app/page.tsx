@@ -26,6 +26,9 @@ export default function Home() {
         <Link href="/resume">
           {'+ mostrar más'}
         </Link>
+        <Link href="/portfolio">
+          {'+ portafolio'}
+        </Link>
       </section>
       
       <section id="show_dates" className={styles['homepage__dates']}>
@@ -69,6 +72,13 @@ export default function Home() {
         >
           + descargar fotos
         </a>
+        <ReactPlayer
+          url="https://www.youtube.com/watch?v=NlHWe-dqb1A"
+          className="react-player"
+          width="360px"
+          height="360px"
+          controls
+        />
         <ReactPlayer
           url="https://www.youtube.com/watch?v=zmodsFoN8bE"
           className="react-player"
